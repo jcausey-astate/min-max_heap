@@ -12,11 +12,11 @@
  *
  * @details
  *   This file defines two namespaces:
- *     * The `mmheap` namespace defines functions that are useful for building and 
+ *     * The `mmheap` namespace defines functions that are useful for building and
  *       maintaining a Min-Max heap.  All necessary ("public-facing") functionality
  *       is in this namespace.
- *     * The The `_mmheap` namespace contains functions that are only intended for 
- *       internal use by the "public-facing" functions in the `mmheap` namespace.  
+ *     * The The `_mmheap` namespace contains functions that are only intended for
+ *       internal use by the "public-facing" functions in the `mmheap` namespace.
  *       None of the functions in `_mmheap::` should be necessary externally.
  *
  * @author    Jason L Causey
@@ -190,7 +190,6 @@ namespace _mmheap{
             auto m = left(i);
             if(right(i) <= right_index && heap_array[right(i)] > heap_array[m]){
                 m = right(i);
->>>>>>> development
             }
             result = {true, m};
         }
@@ -361,7 +360,6 @@ namespace _mmheap{
                 bubble_index    = gparent(bubble_index);
                 finished = false;
             }
->>>>>>> development
         }
     }
 
@@ -394,7 +392,7 @@ namespace _mmheap{
 }
 
 /**
- * The `mmheap` namespace defines functions that are useful for building and 
+ * The `mmheap` namespace defines functions that are useful for building and
  * maintaining a Min-Max heap.  All necessary ("public-facing") functionality
  * is in this namespace.
  */
@@ -559,14 +557,6 @@ namespace mmheap{
      * @return  the value being removed
      * @throws  std::runtime_error if the heap is empty
      * @throws  std::range_error   if the index is out of range
-/**
- * remove and return the minimum value in the heap
- *
- * @param heap_array the array
- * @param count      the current number of values in the heap (will update)
- *
- * @return the minimum value in the heap
- * @throws std::runtime_error if the heap is empty
      */
     int heap_remove_at_index(size_t index, int* heap_array, size_t& count){
         if(count == 0){
