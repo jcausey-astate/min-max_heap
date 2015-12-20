@@ -2,18 +2,18 @@
 #define MMHEAP_H
 /**
  * @file mmheap.h
- * 
+ *
  * Defines functions for maintaining a Min-Max Heap,
  * as described by Adkinson:
- *     M. D. Atkinson, J.-R. Sack, N. Santoro, and T. Strothotte. 1986. 
- *     Min-max heaps and generalized priority queues. 
- *     Commun. ACM 29, 10 (October 1986), 996-1000. 
- *     DOI=http://dx.doi.org/10.1145/6617.6621 
- * 
+ *     M. D. Atkinson, J.-R. Sack, N. Santoro, and T. Strothotte. 1986.
+ *     Min-max heaps and generalized priority queues.
+ *     Commun. ACM 29, 10 (October 1986), 996-1000.
+ *     DOI=http://dx.doi.org/10.1145/6617.6621
+ *
  * @author    Jason L Causey
  * @license   Released under the MIT License: http://opensource.org/licenses/MIT
- * @copyright Copyright (c) 2015 Jason L Causey, Arkansas State University 
- * 
+ * @copyright Copyright (c) 2015 Jason L Causey, Arkansas State University
+ *
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
  *   of this software and associated documentation files (the "Software"), to deal
  *   in the Software without restriction, including without limitation the rights
@@ -52,7 +52,7 @@ inline bool    child(size_t i, size_t c) { return c == left(i) || c == right(i);
  * @param  i value to compute the log_2 for (must be > 0)
  * @return log-base-2 of `i`
  */
-uint64_t log_2(uint64_t i) { 
+uint64_t log_2(uint64_t i) {
     static const uint64_t tab64[64] = {
         63,  0, 58,  1, 59, 47, 53,  2,
         60, 39, 48, 27, 54, 33, 42,  3,
@@ -74,18 +74,18 @@ uint64_t log_2(uint64_t i) {
 
 /**
  * returns `true` if `i` is on a Min-Level
- * 
+ *
  * @param   i index into the heap
  * @return  `true` if `i` is on a min-level
  */
-inline bool min_level(size_t i) { 
+inline bool min_level(size_t i) {
     return i > 0 ? log_2(++i) % 2 == 0 : true;
 }
 
 /**
  * get a pair considing of an indication of whether `i` has any children, and
  * if so, the index of the child containing the minimum value.
- * 
+ *
  * @param   heap_array  the heap
  * @param   i           the index (parent) for which to find the min-child
  * @param   right-index the index of the right-most element that is part of the heap
@@ -96,7 +96,7 @@ inline bool min_level(size_t i) {
 std::pair<bool, size_t> min_child(int* heap_array, size_t i, size_t right_index){
     std::pair<bool, size_t> result{false, 0};
     if(left(i) <= right_index){
-        auto m = left(i);    
+        auto m = left(i);
         if(right(i) <= right_index && heap_array[right(i)] < heap_array[m]){
             m = right(i);
         }
@@ -108,12 +108,12 @@ std::pair<bool, size_t> min_child(int* heap_array, size_t i, size_t right_index)
 /**
  * get a pair considing of an indication of whether `i` has any grandchildren, and
  * if so, the index of the grandchild containing the minimum value.
- * 
+ *
  * @param   heap_array  the heap
  * @param   i           the index (parent) for which to find the min-grandchild
  * @param   right-index the index of the right-most element that is part of the heap
- * @return  a pair where the first element is `true` if `i` has grandchildren 
- *          (`false` otherwise), and the second element is the index of the 
+ * @return  a pair where the first element is `true` if `i` has grandchildren
+ *          (`false` otherwise), and the second element is the index of the
  *          grandchild whose value is smallest (only if the first element is `true`)
  */
 std::pair<bool, size_t> min_gchild(int* heap_array, size_t i, size_t right_index){
@@ -139,13 +139,13 @@ std::pair<bool, size_t> min_gchild(int* heap_array, size_t i, size_t right_index
 /**
  * get a pair considing of an indication of whether `i` has any children, and
  * if so, the index of the child or grandchild containing the minimum value.
- * 
+ *
  * @param   heap_array  the heap
  * @param   i           the index (parent) for which to find the min-(grand)child
  * @param   right-index the index of the right-most element that is part of the heap
- * @return  a pair where the first element is `true` if `i` has children 
- *          (`false` otherwise), and the second element is the index of the 
- *          child or grandchild whose value is smallest (only if the first 
+ * @return  a pair where the first element is `true` if `i` has children
+ *          (`false` otherwise), and the second element is the index of the
+ *          child or grandchild whose value is smallest (only if the first
  *          element is `true`)
  */
 std::pair<bool, size_t> min_child_or_gchild(int* heap_array, size_t i, size_t right_index){
@@ -160,7 +160,7 @@ std::pair<bool, size_t> min_child_or_gchild(int* heap_array, size_t i, size_t ri
 /**
  * get a pair considing of an indication of whether `i` has any children, and
  * if so, the index of the child containing the maximum value.
- * 
+ *
  * @param   heap_array  the heap
  * @param   i           the index (parent) for which to find the max-child
  * @param   right-index the index of the right-most element that is part of the heap
@@ -170,7 +170,7 @@ std::pair<bool, size_t> min_child_or_gchild(int* heap_array, size_t i, size_t ri
  */
 std::pair<bool, size_t> max_child(int* heap_array, size_t i, size_t right_index){
     std::pair<bool, size_t> result {false, 0};
-    if(left(i) <= right_index){   
+    if(left(i) <= right_index){
         auto m = left(i);
         if(right(i) <= right_index && heap_array[right(i)] > heap_array[m]){
             m = right(i);
@@ -183,12 +183,12 @@ std::pair<bool, size_t> max_child(int* heap_array, size_t i, size_t right_index)
 /**
  * get a pair considing of an indication of whether `i` has any grandchildren, and
  * if so, the index of the grandchild containing the maximum value.
- * 
+ *
  * @param   heap_array  the heap
  * @param   i           the index (parent) for which to find the max-grandchild
  * @param   right-index the index of the right-most element that is part of the heap
- * @return  a pair where the first element is `true` if `i` has grandchildren 
- *          (`false` otherwise), and the second element is the index of the 
+ * @return  a pair where the first element is `true` if `i` has grandchildren
+ *          (`false` otherwise), and the second element is the index of the
  *          grandchild whose value is largest (only if the first element is `true`)
  */
 
@@ -215,13 +215,13 @@ std::pair<bool, size_t> max_gchild(int* heap_array, size_t i, size_t right_index
 /**
  * get a pair considing of an indication of whether `i` has any children, and
  * if so, the index of the child or grandchild containing the maximum value.
- * 
+ *
  * @param   heap_array  the heap
  * @param   i           the index (parent) for which to find the max-(grand)child
  * @param   right-index the index of the right-most element that is part of the heap
- * @return  a pair where the first element is `true` if `i` has children 
- *          (`false` otherwise), and the second element is the index of the 
- *          child or grandchild whose value is largest (only if the first 
+ * @return  a pair where the first element is `true` if `i` has children
+ *          (`false` otherwise), and the second element is the index of the
+ *          child or grandchild whose value is largest (only if the first
  *          element is `true`)
  */
 std::pair<bool, size_t> max_child_or_gchild(int* heap_array, size_t i, size_t right_index){
@@ -235,7 +235,7 @@ std::pair<bool, size_t> max_child_or_gchild(int* heap_array, size_t i, size_t ri
 
 /**
  * perform min-max heap sift-down on an element (at `sift_index`) that is on a min-level
- * 
+ *
  * @param heap_array  the heap
  * @param sift_index  the index of the element that should be sifted down
  * @param right_index the index of the right-most element that is part of the heap
@@ -243,7 +243,7 @@ std::pair<bool, size_t> max_child_or_gchild(int* heap_array, size_t i, size_t ri
 void mmheap_sift_down_min(int* heap_array, size_t sift_index, size_t right_index){
     bool sift_more = true;
     while(sift_more && left(sift_index) <= right_index){                                        // if a[i] has children
-        sift_more = false;                                                                               
+        sift_more = false;
         auto mp = min_child_or_gchild(heap_array, sift_index, right_index); // get min child or grandchild
         auto m  = mp.second;
         if(child(sift_index, m)){  // if the min was a child
@@ -266,7 +266,7 @@ void mmheap_sift_down_min(int* heap_array, size_t sift_index, size_t right_index
 
 /**
  * perform min-max heap sift-down on an element (at `sift_index`) that is on a max-level
- * 
+ *
  * @param heap_array  the heap
  * @param sift_index  the index of the element that should be sifted down
  * @param right_index the index of the right-most element that is part of the heap
@@ -274,7 +274,7 @@ void mmheap_sift_down_min(int* heap_array, size_t sift_index, size_t right_index
 void mmheap_sift_down_max(int* heap_array, size_t sift_index, size_t right_index){
     bool sift_more = true;
     while(sift_more && left(sift_index) <= right_index){                                        // if a[i] has children
-        sift_more = false;                                                                               
+        sift_more = false;
         auto mp = max_child_or_gchild(heap_array, sift_index, right_index); // get max child or grandchild
         auto m  = mp.second;
         if(child(sift_index, m)){  // if the max was a child
@@ -297,7 +297,7 @@ void mmheap_sift_down_max(int* heap_array, size_t sift_index, size_t right_index
 
 /**
  * perform min-max heap sift-down on an element (at `sift_index`)
- * 
+ *
  * @param heap_array  the heap
  * @param sift_index  the index of the element that should be sifted down
  * @param right_index the index of the right-most element that is part of the heap
@@ -313,7 +313,7 @@ void mmheap_sift_down(int* heap_array, size_t sift_index, size_t right_index){
 
 /**
  * perform min-max heap bubble-up on an element (at `bubble_index`) that is on a min-level
- * 
+ *
  * @param heap_array    the heap
  * @param bubble_index  the index of the element that should be bubbled up
  */
@@ -331,7 +331,7 @@ void bubble_up_min(int* heap_array, size_t bubble_index){
 
 /**
  * perform min-max heap bubble-up on an element (at `bubble_index`) that is on a max-level
- * 
+ *
  * @param heap_array    the heap
  * @param bubble_index  the index of the element that should be bubbled up
  */
@@ -349,7 +349,7 @@ void bubble_up_max(int* heap_array, int bubble_index){
 
 /**
  * perform min-max heap bubble-up on an element (at `bubble_index`)
- * 
+ *
  * @param heap_array    the heap
  * @param bubble_index  the index of the element that should be bubbled up
  */
@@ -378,7 +378,7 @@ void bubble_up(int* heap_array, int bubble_index){
  * @brief   make an arbitrary array into a heap (in-place)
  * @details Applies Floyd's algorithm (adapted to a min-max heap) to produce
  *          a heap from an arbitrary array in linear time.
- * 
+ *
  * @param heap_array    the array that will become a heap
  * @param size          the number of elements in the array
  */
@@ -392,12 +392,12 @@ void make_mm_heap(int* heap_array, size_t size){
 
 /**
  * add a new value to the heap (and update the `count`)
- * 
+ *
  * @param           value       the new value to add
  * @param           heap_array  the heap
  * @param[in,out]   count       the current number of items in the heap (will update)
  * @param           max_size    the physical storage allocation size of the heap
- * @throws std::runtime_error if the heap is full prior to the add operation 
+ * @throws std::runtime_error if the heap is full prior to the add operation
  */
 void mm_heap_add(int value, int* heap_array, size_t& count, size_t max_size){
     if(count < max_size){
@@ -411,10 +411,10 @@ void mm_heap_add(int value, int* heap_array, size_t& count, size_t max_size){
 
 /**
  * get the maximum value in the heap
- *  
+ *
  * @param heap_array the heap
  * @param count      the current number of values contained in the heap
- * 
+ *
  * @return the maximum value in the heap
  * @throws std::runtime_error if the heap is empty
  */
@@ -428,10 +428,10 @@ int mm_heap_max(int* heap_array, size_t count){
 
 /**
  * get the minimum value in the heap
- *  
+ *
  * @param heap_array the heap
  * @param count      the current number of values contained in the heap
- * 
+ *
  * @return the minimum value in the heap
  * @throws std::runtime_error if the heap is empty
  */
@@ -446,14 +446,14 @@ int mm_heap_min(int* heap_array, size_t count){
  * @brief   add to heap, pushing the maximum value out if the heap is full
  * @details Add to the min-max heap in such a way that the maximum value is removed
  *          at the same time if the heap has reached its storage capacity.
- * 
+ *
  * @param         value         new value to add
  * @param         heap_array    the heap
  * @param[in,out] count         number of values currently in the heap (will update)
  * @param         max_size      maximum physical size allocated for the heap
- * 
- * @return a pair consising of a flag and a value; the first element is a flag 
- *         indicating that overflow occurred, and the second element is the value 
+ *
+ * @return a pair consising of a flag and a value; the first element is a flag
+ *         indicating that overflow occurred, and the second element is the value
  *         that shifted out of the heap (formerly the maximum) when the new value
  *         was added (set only if an overflow occurred)
  */
@@ -464,14 +464,20 @@ std::pair<bool, int> mm_heap_ripple_add(int value, int* heap_array, size_t& coun
         mm_heap_add(value, heap_array, count, max_size);
     }
     else{       // if the heap is full, replace the max value with the new add...
-        auto m        = max_size > 1 ? max_child(heap_array, 0, max_size-1).second : 0;  
+        auto m        = max_size > 1 ? max_child(heap_array, 0, max_size-1).second : 0;
         max_value     = heap_array[m];
         heap_array[m] = value;
-        if(max_size > 1){                                   // if this is non-trivial
-            if(value < heap_array[0]){                      // check that the new value isn't the new min
-                std::swap(heap_array[0], heap_array[m]);    //  (if it is, make it so)
-            }    
-            mmheap_sift_down(heap_array, m, max_size-1);    // sift the new item down
+        if(value < max_value){                                  // if the new value is max, it can't insert here.
+            heap_array[m] = value;                              //  (note: can occur when inserting the second value from empty)
+            if(max_size > 1){                                   // if this is non-trivial
+                if(value < heap_array[0]){                      // check that the new value isn't the new min
+                    std::swap(heap_array[0], heap_array[m]);    //  (if it is, make it so)
+                }
+                mmheap_sift_down(heap_array, m, max_size-1);    // sift the new item down
+            }
+        }
+        else{
+            max_value = value;
         }
     }
     return std::pair<bool, int>{rippled, max_value};
@@ -480,12 +486,12 @@ std::pair<bool, int> mm_heap_ripple_add(int value, int* heap_array, size_t& coun
 
 /**
  * replace and return the value at a given index with a new value
- * 
+ *
  * @param new_value   new value to insert
  * @param index       index of the value to replace
  * @param heap_array  the heap
  * @param count       number of values currently stored in the heap
- * 
+ *
  * @return  the old value being replaced
  * @throws  std::runtime_error if the heap is empty
  * @throws  std::range_error   if the index is out of range
@@ -526,11 +532,11 @@ int mm_heap_replace_at_index(int new_value, size_t index, int* heap_array, size_
 
 /**
  * remove and return value at a given index
- * 
+ *
  * @param         index      index to remove
  * @param         heap_array the heap
  * @param[in,out] count      current number of values in the heap (will update)
- * 
+ *
  * @return  the value being removed
  * @throws  std::runtime_error if the heap is empty
  * @throws  std::range_error   if the index is out of range
@@ -549,10 +555,10 @@ int mm_heap_remove_at_index(size_t index, int* heap_array, size_t& count){
 
 /**
  * remove and return the minimum value in the heap
- * 
+ *
  * @param heap_array the array
  * @param count      the current number of values in the heap (will update)
- * 
+ *
  * @return the minimum value in the heap
  * @throws std::runtime_error if the heap is empty
  */
@@ -569,10 +575,10 @@ int mm_heap_remove_min(int* heap_array, size_t& count){
 
 /**
  * remove and return the maximum value in the heap
- * 
+ *
  * @param heap_array the array
  * @param count      the current number of values in the heap (will update)
- * 
+ *
  * @return the maximum value in the heap
  * @throws std::runtime_error if the heap is empty
  */
