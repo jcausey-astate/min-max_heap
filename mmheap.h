@@ -563,7 +563,9 @@ int mm_heap_remove_min(int* heap_array, size_t& count){
     int value = heap_array[0];
     std::swap(heap_array[0], heap_array[count-1]);
     --count;
-    mmheap_sift_down(heap_array, 0, count-1);
+    if(count > 0){
+        mmheap_sift_down(heap_array, 0, count-1);
+    }
     return value;
 }
 
@@ -583,7 +585,7 @@ int mm_heap_remove_max(int* heap_array, size_t& count){
     auto value = heap_array[0];
     auto m     = max_child(heap_array, 0, count-1);
     if(m.first){
-        value = m.second;
+        value = heap_array[m.second];
     }
     else{
         m.second = 0;
