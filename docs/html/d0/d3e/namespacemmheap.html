@@ -90,44 +90,55 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:abad6cc47e5ca6757f923437526896de0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d3e/namespacemmheap.html#abad6cc47e5ca6757f923437526896de0">make_heap</a> (int *heap_array, size_t size)</td></tr>
-<tr class="memdesc:abad6cc47e5ca6757f923437526896de0"><td class="mdescLeft">&#160;</td><td class="mdescRight">make an arbitrary array into a heap (in-place)  <a href="#abad6cc47e5ca6757f923437526896de0">More...</a><br /></td></tr>
-<tr class="separator:abad6cc47e5ca6757f923437526896de0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfd69d4fce96fa487fce6ebee80f3fba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d3e/namespacemmheap.html#acfd69d4fce96fa487fce6ebee80f3fba">heap_insert</a> (int value, int *heap_array, size_t &amp;count, size_t max_size)</td></tr>
-<tr class="separator:acfd69d4fce96fa487fce6ebee80f3fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c49a4156300ea6a1f1773761b79e703"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d3e/namespacemmheap.html#a2c49a4156300ea6a1f1773761b79e703">heap_max</a> (int *heap_array, size_t count)</td></tr>
-<tr class="separator:a2c49a4156300ea6a1f1773761b79e703"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0b742e466d07df2f7bcc3b1d39087c7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d3e/namespacemmheap.html#ad0b742e466d07df2f7bcc3b1d39087c7">heap_min</a> (int *heap_array, size_t count)</td></tr>
-<tr class="separator:ad0b742e466d07df2f7bcc3b1d39087c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d718b460df388af7d6c89f81fc9aca4"><td class="memItemLeft" align="right" valign="top">std::pair&lt; bool, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d3e/namespacemmheap.html#a8d718b460df388af7d6c89f81fc9aca4">heap_insert_circular</a> (int value, int *heap_array, size_t &amp;count, size_t max_size)</td></tr>
-<tr class="memdesc:a8d718b460df388af7d6c89f81fc9aca4"><td class="mdescLeft">&#160;</td><td class="mdescRight">add to heap, rotating the maximum value out if the heap is full  <a href="#a8d718b460df388af7d6c89f81fc9aca4">More...</a><br /></td></tr>
-<tr class="separator:a8d718b460df388af7d6c89f81fc9aca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47fae895a675496ff12bc13144495d0b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d3e/namespacemmheap.html#a47fae895a675496ff12bc13144495d0b">heap_replace_at_index</a> (int new_value, size_t index, int *heap_array, size_t count)</td></tr>
-<tr class="separator:a47fae895a675496ff12bc13144495d0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2aae3b69bd60fd2416883986a0ea2ed4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d3e/namespacemmheap.html#a2aae3b69bd60fd2416883986a0ea2ed4">heap_remove_at_index</a> (size_t index, int *heap_array, size_t &amp;count)</td></tr>
-<tr class="separator:a2aae3b69bd60fd2416883986a0ea2ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10a5a4e42de7c08d4f573847ad74fece"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d3e/namespacemmheap.html#a10a5a4e42de7c08d4f573847ad74fece">heap_remove_min</a> (int *heap_array, size_t &amp;count)</td></tr>
-<tr class="separator:a10a5a4e42de7c08d4f573847ad74fece"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54cdc02b242877d9a39e51beded8e1a7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d3e/namespacemmheap.html#a54cdc02b242877d9a39e51beded8e1a7">heap_remove_max</a> (int *heap_array, size_t &amp;count)</td></tr>
-<tr class="separator:a54cdc02b242877d9a39e51beded8e1a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45309cf4618056ec235f774017a85d6e"><td class="memTemplParams" colspan="2">template&lt;typename DataType &gt; </td></tr>
+<tr class="memitem:a45309cf4618056ec235f774017a85d6e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d3e/namespacemmheap.html#a45309cf4618056ec235f774017a85d6e">make_heap</a> (DataType *heap_array, size_t size)</td></tr>
+<tr class="memdesc:a45309cf4618056ec235f774017a85d6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">make an arbitrary array into a heap (in-place)  <a href="#a45309cf4618056ec235f774017a85d6e">More...</a><br /></td></tr>
+<tr class="separator:a45309cf4618056ec235f774017a85d6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac58489e9abbcc179b0c178fd6557fd20"><td class="memTemplParams" colspan="2">template&lt;typename DataType &gt; </td></tr>
+<tr class="memitem:ac58489e9abbcc179b0c178fd6557fd20"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d3e/namespacemmheap.html#ac58489e9abbcc179b0c178fd6557fd20">heap_insert</a> (const DataType &amp;value, DataType *heap_array, size_t &amp;count, size_t max_size)</td></tr>
+<tr class="separator:ac58489e9abbcc179b0c178fd6557fd20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2b7e95f60af40f9b5d089356c56c2ef"><td class="memTemplParams" colspan="2">template&lt;typename DataType &gt; </td></tr>
+<tr class="memitem:ab2b7e95f60af40f9b5d089356c56c2ef"><td class="memTemplItemLeft" align="right" valign="top">DataType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d3e/namespacemmheap.html#ab2b7e95f60af40f9b5d089356c56c2ef">heap_max</a> (DataType *heap_array, size_t count)</td></tr>
+<tr class="separator:ab2b7e95f60af40f9b5d089356c56c2ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b9d6fa06b11f78e7622394f4907b294"><td class="memTemplParams" colspan="2">template&lt;typename DataType &gt; </td></tr>
+<tr class="memitem:a7b9d6fa06b11f78e7622394f4907b294"><td class="memTemplItemLeft" align="right" valign="top">DataType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d3e/namespacemmheap.html#a7b9d6fa06b11f78e7622394f4907b294">heap_min</a> (DataType *heap_array, size_t count)</td></tr>
+<tr class="separator:a7b9d6fa06b11f78e7622394f4907b294"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a43f1ed0809b085a8c88e7b871c435f"><td class="memTemplParams" colspan="2">template&lt;typename DataType &gt; </td></tr>
+<tr class="memitem:a1a43f1ed0809b085a8c88e7b871c435f"><td class="memTemplItemLeft" align="right" valign="top">std::pair&lt; bool, DataType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d3e/namespacemmheap.html#a1a43f1ed0809b085a8c88e7b871c435f">heap_insert_circular</a> (const DataType &amp;value, DataType *heap_array, size_t &amp;count, size_t max_size)</td></tr>
+<tr class="memdesc:a1a43f1ed0809b085a8c88e7b871c435f"><td class="mdescLeft">&#160;</td><td class="mdescRight">add to heap, rotating the maximum value out if the heap is full  <a href="#a1a43f1ed0809b085a8c88e7b871c435f">More...</a><br /></td></tr>
+<tr class="separator:a1a43f1ed0809b085a8c88e7b871c435f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c50721a9c049df7321e6e0a5f71c3e5"><td class="memTemplParams" colspan="2">template&lt;typename DataType &gt; </td></tr>
+<tr class="memitem:a5c50721a9c049df7321e6e0a5f71c3e5"><td class="memTemplItemLeft" align="right" valign="top">DataType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d3e/namespacemmheap.html#a5c50721a9c049df7321e6e0a5f71c3e5">heap_replace_at_index</a> (const DataType &amp;new_value, size_t index, DataType *heap_array, size_t count)</td></tr>
+<tr class="separator:a5c50721a9c049df7321e6e0a5f71c3e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f44688116ea92f7c1f0928a6e12e1f4"><td class="memTemplParams" colspan="2">template&lt;typename DataType &gt; </td></tr>
+<tr class="memitem:a7f44688116ea92f7c1f0928a6e12e1f4"><td class="memTemplItemLeft" align="right" valign="top">DataType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d3e/namespacemmheap.html#a7f44688116ea92f7c1f0928a6e12e1f4">heap_remove_at_index</a> (size_t index, DataType *heap_array, size_t &amp;count)</td></tr>
+<tr class="separator:a7f44688116ea92f7c1f0928a6e12e1f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ea00cdf67ce95e632f8061a1d76688e"><td class="memTemplParams" colspan="2">template&lt;typename DataType &gt; </td></tr>
+<tr class="memitem:a9ea00cdf67ce95e632f8061a1d76688e"><td class="memTemplItemLeft" align="right" valign="top">DataType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d3e/namespacemmheap.html#a9ea00cdf67ce95e632f8061a1d76688e">heap_remove_min</a> (DataType *heap_array, size_t &amp;count)</td></tr>
+<tr class="separator:a9ea00cdf67ce95e632f8061a1d76688e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6893bd3b88b212d0b0f1caccdc3939a"><td class="memTemplParams" colspan="2">template&lt;typename DataType &gt; </td></tr>
+<tr class="memitem:ac6893bd3b88b212d0b0f1caccdc3939a"><td class="memTemplItemLeft" align="right" valign="top">DataType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d3e/namespacemmheap.html#ac6893bd3b88b212d0b0f1caccdc3939a">heap_remove_max</a> (DataType *heap_array, size_t &amp;count)</td></tr>
+<tr class="separator:ac6893bd3b88b212d0b0f1caccdc3939a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <code>mmheap</code> namespace defines functions that are useful for building and maintaining a Min-Max heap. All necessary ("public-facing") functionality is in this namespace. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="acfd69d4fce96fa487fce6ebee80f3fba"></a>
+<a class="anchor" id="ac58489e9abbcc179b0c178fd6557fd20"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename DataType &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void mmheap::heap_insert </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const DataType &amp;&#160;</td>
           <td class="paramname"><em>value</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int *&#160;</td>
+          <td class="paramtype">DataType *&#160;</td>
           <td class="paramname"><em>heap_array</em>, </td>
         </tr>
         <tr>
@@ -159,6 +170,12 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">DataType</td><td>the type of data stored in the heap - must be LessThanComparable, Swappable, CopyConstructable, and CopyAssignable </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::runtime_error</td><td>if the heap is full prior to the insert operation </td></tr>
@@ -166,24 +183,26 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00425">425</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00480">480</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a8d718b460df388af7d6c89f81fc9aca4"></a>
+<a class="anchor" id="a1a43f1ed0809b085a8c88e7b871c435f"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename DataType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::pair&lt;bool, int&gt; mmheap::heap_insert_circular </td>
+          <td class="memname">std::pair&lt;bool, DataType&gt; mmheap::heap_insert_circular </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const DataType &amp;&#160;</td>
           <td class="paramname"><em>value</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int *&#160;</td>
+          <td class="paramtype">DataType *&#160;</td>
           <td class="paramname"><em>heap_array</em>, </td>
         </tr>
         <tr>
@@ -213,24 +232,32 @@ Functions</h2></td></tr>
     <tr><td class="paramdir"></td><td class="paramname">value</td><td>new value to add </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">heap_array</td><td>the heap </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">count</td><td>number of values currently in the heap (will update) </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">max_size</td><td>maximum physical size allocated for the heap</td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">max_size</td><td>maximum physical size allocated for the heap </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">DataType</td><td>the type of data stored in the heap - must be LessThanComparable, Swappable, CopyConstructable, and CopyAssignable </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a pair consising of a flag and a value; the first element is a flag indicating that overflow occurred, and the second element is the value that rotated out of the heap (formerly the maximum) when the new value was added (set only if an overflow occurred) </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00483">483</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00547">547</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a2c49a4156300ea6a1f1773761b79e703"></a>
+<a class="anchor" id="ab2b7e95f60af40f9b5d089356c56c2ef"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename DataType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">int mmheap::heap_max </td>
+          <td class="memname">DataType mmheap::heap_max </td>
           <td>(</td>
-          <td class="paramtype">int *&#160;</td>
+          <td class="paramtype">DataType *&#160;</td>
           <td class="paramname"><em>heap_array</em>, </td>
         </tr>
         <tr>
@@ -250,7 +277,13 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">heap_array</td><td>the heap </td></tr>
-    <tr><td class="paramname">count</td><td>the current number of values contained in the heap</td></tr>
+    <tr><td class="paramname">count</td><td>the current number of values contained in the heap </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">DataType</td><td>the type of data stored in the heap - must be LessThanComparable, Swappable, CopyConstructable, and CopyAssignable </td></tr>
   </table>
   </dd>
 </dl>
@@ -262,18 +295,20 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00444">444</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00502">502</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad0b742e466d07df2f7bcc3b1d39087c7"></a>
+<a class="anchor" id="a7b9d6fa06b11f78e7622394f4907b294"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename DataType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">int mmheap::heap_min </td>
+          <td class="memname">DataType mmheap::heap_min </td>
           <td>(</td>
-          <td class="paramtype">int *&#160;</td>
+          <td class="paramtype">DataType *&#160;</td>
           <td class="paramname"><em>heap_array</em>, </td>
         </tr>
         <tr>
@@ -293,7 +328,13 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">heap_array</td><td>the heap </td></tr>
-    <tr><td class="paramname">count</td><td>the current number of values contained in the heap</td></tr>
+    <tr><td class="paramname">count</td><td>the current number of values contained in the heap </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">DataType</td><td>the type of data stored in the heap - must be LessThanComparable, Swappable, CopyConstructable, and CopyAssignable </td></tr>
   </table>
   </dd>
 </dl>
@@ -305,16 +346,18 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00461">461</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00522">522</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a2aae3b69bd60fd2416883986a0ea2ed4"></a>
+<a class="anchor" id="a7f44688116ea92f7c1f0928a6e12e1f4"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename DataType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">int mmheap::heap_remove_at_index </td>
+          <td class="memname">DataType mmheap::heap_remove_at_index </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
           <td class="paramname"><em>index</em>, </td>
@@ -322,7 +365,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int *&#160;</td>
+          <td class="paramtype">DataType *&#160;</td>
           <td class="paramname"><em>heap_array</em>, </td>
         </tr>
         <tr>
@@ -343,7 +386,13 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">index</td><td>index to remove </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">heap_array</td><td>the heap </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">count</td><td>current number of values in the heap (will update)</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">count</td><td>current number of values in the heap (will update) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">DataType</td><td>the type of data stored in the heap - must be LessThanComparable, Swappable, CopyConstructable, and CopyAssignable </td></tr>
   </table>
   </dd>
 </dl>
@@ -356,18 +405,20 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00566">566</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00636">636</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a54cdc02b242877d9a39e51beded8e1a7"></a>
+<a class="anchor" id="ac6893bd3b88b212d0b0f1caccdc3939a"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename DataType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">int mmheap::heap_remove_max </td>
+          <td class="memname">DataType mmheap::heap_remove_max </td>
           <td>(</td>
-          <td class="paramtype">int *&#160;</td>
+          <td class="paramtype">DataType *&#160;</td>
           <td class="paramname"><em>heap_array</em>, </td>
         </tr>
         <tr>
@@ -387,7 +438,13 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">heap_array</td><td>the array </td></tr>
-    <tr><td class="paramname">count</td><td>the current number of values in the heap (will update)</td></tr>
+    <tr><td class="paramname">count</td><td>the current number of values in the heap (will update) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">DataType</td><td>the type of data stored in the heap - must be LessThanComparable, Swappable, CopyConstructable, and CopyAssignable </td></tr>
   </table>
   </dd>
 </dl>
@@ -399,18 +456,20 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00609">609</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00685">685</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a10a5a4e42de7c08d4f573847ad74fece"></a>
+<a class="anchor" id="a9ea00cdf67ce95e632f8061a1d76688e"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename DataType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">int mmheap::heap_remove_min </td>
+          <td class="memname">DataType mmheap::heap_remove_min </td>
           <td>(</td>
-          <td class="paramtype">int *&#160;</td>
+          <td class="paramtype">DataType *&#160;</td>
           <td class="paramname"><em>heap_array</em>, </td>
         </tr>
         <tr>
@@ -430,7 +489,13 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">heap_array</td><td>the array </td></tr>
-    <tr><td class="paramname">count</td><td>the current number of values in the heap (will update)</td></tr>
+    <tr><td class="paramname">count</td><td>the current number of values in the heap (will update) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">DataType</td><td>the type of data stored in the heap - must be LessThanComparable, Swappable, CopyConstructable, and CopyAssignable </td></tr>
   </table>
   </dd>
 </dl>
@@ -442,18 +507,20 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00587">587</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00660">660</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a47fae895a675496ff12bc13144495d0b"></a>
+<a class="anchor" id="a5c50721a9c049df7321e6e0a5f71c3e5"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename DataType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">int mmheap::heap_replace_at_index </td>
+          <td class="memname">DataType mmheap::heap_replace_at_index </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const DataType &amp;&#160;</td>
           <td class="paramname"><em>new_value</em>, </td>
         </tr>
         <tr>
@@ -465,7 +532,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int *&#160;</td>
+          <td class="paramtype">DataType *&#160;</td>
           <td class="paramname"><em>heap_array</em>, </td>
         </tr>
         <tr>
@@ -487,7 +554,13 @@ Functions</h2></td></tr>
     <tr><td class="paramname">new_value</td><td>new value to insert </td></tr>
     <tr><td class="paramname">index</td><td>index of the value to replace </td></tr>
     <tr><td class="paramname">heap_array</td><td>the heap </td></tr>
-    <tr><td class="paramname">count</td><td>number of values currently stored in the heap</td></tr>
+    <tr><td class="paramname">count</td><td>number of values currently stored in the heap </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">DataType</td><td>the type of data stored in the heap - must be LessThanComparable, Swappable, CopyConstructable, and CopyAssignable </td></tr>
   </table>
   </dd>
 </dl>
@@ -500,18 +573,20 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00521">521</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00588">588</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="abad6cc47e5ca6757f923437526896de0"></a>
+<a class="anchor" id="a45309cf4618056ec235f774017a85d6e"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename DataType &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void mmheap::make_heap </td>
           <td>(</td>
-          <td class="paramtype">int *&#160;</td>
+          <td class="paramtype">DataType *&#160;</td>
           <td class="paramname"><em>heap_array</em>, </td>
         </tr>
         <tr>
@@ -537,15 +612,21 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">DataType</td><td>the type of data stored in the heap - must be LessThanComparable, Swappable, CopyConstructable, and CopyAssignable </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00408">408</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00459">459</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 20 2015 18:23:24 for Min-Max Heap by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Dec 20 2015 19:58:44 for Min-Max Heap by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

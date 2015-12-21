@@ -132,6 +132,9 @@ namespace _mmheap{
      * @param   heap_array  the heap
      * @param   i           the index (parent) for which to find the min-grandchild
      * @param   right-index the index of the right-most element that is part of the heap
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      * @return  a pair where the first element is `true` if `i` has grandchildren
      *          (`false` otherwise), and the second element is the index of the
      *          grandchild whose value is smallest (only if the first element is `true`)
@@ -164,6 +167,9 @@ namespace _mmheap{
      * @param   heap_array  the heap
      * @param   i           the index (parent) for which to find the min-(grand)child
      * @param   right-index the index of the right-most element that is part of the heap
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      * @return  a pair where the first element is `true` if `i` has children
      *          (`false` otherwise), and the second element is the index of the
      *          child or grandchild whose value is smallest (only if the first
@@ -186,6 +192,9 @@ namespace _mmheap{
      * @param   heap_array  the heap
      * @param   i           the index (parent) for which to find the max-child
      * @param   right-index the index of the right-most element that is part of the heap
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      * @return  a pair where the first element is `true` if `i` has children (`false`
      *          otherwise), and the second element is the index of the child whose value
      *          is largest (only if the first element is `true`)
@@ -210,6 +219,9 @@ namespace _mmheap{
      * @param   heap_array  the heap
      * @param   i           the index (parent) for which to find the max-grandchild
      * @param   right-index the index of the right-most element that is part of the heap
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      * @return  a pair where the first element is `true` if `i` has grandchildren
      *          (`false` otherwise), and the second element is the index of the
      *          grandchild whose value is largest (only if the first element is `true`)
@@ -242,6 +254,9 @@ namespace _mmheap{
      * @param   heap_array  the heap
      * @param   i           the index (parent) for which to find the max-(grand)child
      * @param   right-index the index of the right-most element that is part of the heap
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      * @return  a pair where the first element is `true` if `i` has children
      *          (`false` otherwise), and the second element is the index of the
      *          child or grandchild whose value is largest (only if the first
@@ -263,6 +278,9 @@ namespace _mmheap{
      * @param heap_array  the heap
      * @param sift_index  the index of the element that should be sifted down
      * @param right_index the index of the right-most element that is part of the heap
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      */
     template <typename DataType>
     void sift_down_min(DataType* heap_array, size_t sift_index, size_t right_index){
@@ -295,6 +313,9 @@ namespace _mmheap{
      * @param heap_array  the heap
      * @param sift_index  the index of the element that should be sifted down
      * @param right_index the index of the right-most element that is part of the heap
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      */
     template <typename DataType>
     void sift_down_max(DataType* heap_array, size_t sift_index, size_t right_index){
@@ -327,6 +348,9 @@ namespace _mmheap{
      * @param heap_array  the heap
      * @param sift_index  the index of the element that should be sifted down
      * @param right_index the index of the right-most element that is part of the heap
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      */
     template <typename DataType>
     void sift_down(DataType* heap_array, size_t sift_index, size_t right_index){
@@ -343,6 +367,9 @@ namespace _mmheap{
      *
      * @param heap_array    the heap
      * @param bubble_index  the index of the element that should be bubbled up
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      */
     template <typename DataType>
     void bubble_up_min(DataType* heap_array, size_t bubble_index){
@@ -362,6 +389,9 @@ namespace _mmheap{
      *
      * @param heap_array    the heap
      * @param bubble_index  the index of the element that should be bubbled up
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      */
     template <typename DataType>
     void bubble_up_max(DataType* heap_array, int bubble_index){
@@ -381,6 +411,9 @@ namespace _mmheap{
      *
      * @param heap_array    the heap
      * @param bubble_index  the index of the element that should be bubbled up
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      */
     template <typename DataType>
     void bubble_up(DataType* heap_array, int bubble_index){
@@ -418,6 +451,9 @@ namespace mmheap{
      *
      * @param heap_array    the array that will become a heap
      * @param size          the number of elements in the array
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      */
     template <typename DataType>
     void make_heap(DataType* heap_array, size_t size){
@@ -435,6 +471,9 @@ namespace mmheap{
      * @param           heap_array  the heap
      * @param[in,out]   count       the current number of items in the heap (will update)
      * @param           max_size    the physical storage allocation size of the heap
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      * @throws std::runtime_error if the heap is full prior to the insert operation
      */
     template <typename DataType>
@@ -453,7 +492,9 @@ namespace mmheap{
      *
      * @param heap_array the heap
      * @param count      the current number of values contained in the heap
-     *
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      * @return the maximum value in the heap
      * @throws std::runtime_error if the heap is empty
      */
@@ -471,7 +512,9 @@ namespace mmheap{
      *
      * @param heap_array the heap
      * @param count      the current number of values contained in the heap
-     *
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      * @return the minimum value in the heap
      * @throws std::runtime_error if the heap is empty
      */
@@ -492,7 +535,9 @@ namespace mmheap{
      * @param         heap_array    the heap
      * @param[in,out] count         number of values currently in the heap (will update)
      * @param         max_size      maximum physical size allocated for the heap
-     *
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      * @return a pair consising of a flag and a value; the first element is a flag
      *         indicating that overflow occurred, and the second element is the value
      *         that rotated out of the heap (formerly the maximum) when the new value
@@ -532,7 +577,9 @@ namespace mmheap{
      * @param index       index of the value to replace
      * @param heap_array  the heap
      * @param count       number of values currently stored in the heap
-     *
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      * @return  the old value being replaced
      * @throws  std::runtime_error if the heap is empty
      * @throws  std::range_error   if the index is out of range
@@ -578,7 +625,9 @@ namespace mmheap{
      * @param         index      index to remove
      * @param         heap_array the heap
      * @param[in,out] count      current number of values in the heap (will update)
-     *
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      * @return  the value being removed
      * @throws  std::runtime_error if the heap is empty
      * @throws  std::range_error   if the index is out of range
@@ -601,7 +650,9 @@ namespace mmheap{
      *
      * @param heap_array the array
      * @param count      the current number of values in the heap (will update)
-     *
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      * @return the minimum value in the heap
      * @throws std::runtime_error if the heap is empty
      */
@@ -624,7 +675,9 @@ namespace mmheap{
      *
      * @param heap_array the array
      * @param count      the current number of values in the heap (will update)
-     *
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      * @return the maximum value in the heap
      * @throws std::runtime_error if the heap is empty
      */
