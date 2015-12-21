@@ -394,7 +394,7 @@ namespace _mmheap{
      *                      and CopyAssignable
      */
     template <typename DataType>
-    void bubble_up_max(DataType* heap_array, int bubble_index){
+    void bubble_up_max(DataType* heap_array, size_t bubble_index){
         bool finished = false;
         while(!finished && has_gparent(bubble_index)){
             finished = true;
@@ -416,7 +416,7 @@ namespace _mmheap{
      *                      and CopyAssignable
      */
     template <typename DataType>
-    void bubble_up(DataType* heap_array, int bubble_index){
+    void bubble_up(DataType* heap_array, size_t bubble_index){
         if(min_level(bubble_index)){
             if(has_parent(bubble_index) && heap_array[parent(bubble_index)] < heap_array[bubble_index]){
                 std::swap(heap_array[bubble_index], heap_array[parent(bubble_index)]);
@@ -458,8 +458,10 @@ namespace mmheap{
     template <typename DataType>
     void make_heap(DataType* heap_array, size_t size){
         if(size > 1){
-            for(int current = _mmheap::parent(size-1); current >= 0; --current){
+            bool finished = false;
+            for(size_t current = _mmheap::parent(size-1); !finished; --current){
                 _mmheap::sift_down(heap_array, current, size-1);
+                finished = current == 0;
             }
         }
     }
@@ -536,8 +538,8 @@ namespace mmheap{
      * @param[in,out] count         number of values currently in the heap (will update)
      * @param         max_size      maximum physical size allocated for the heap
      * @tparam  DataType    the type of data stored in the heap - must be
-     *                      LessThanComparable, Swappable, CopyConstructable,
-     *                      and CopyAssignable
+     *                      DefaultConstructable, LessThanComparable, Swappable,
+     *                      CopyConstructable, and CopyAssignable
      * @return a pair consising of a flag and a value; the first element is a flag
      *         indicating that overflow occurred, and the second element is the value
      *         that rotated out of the heap (formerly the maximum) when the new value
@@ -566,7 +568,7 @@ namespace mmheap{
                 max_value = value;
             }
         }
-        return std::pair<bool, int>{overflowed, max_value};
+        return std::pair<bool, DataType>{overflowed, max_value};
     }
 
 
