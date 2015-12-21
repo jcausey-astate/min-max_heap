@@ -1,23 +1,5 @@
 var searchData=
 [
-  ['make_5fmm_5fheap',['make_mm_heap',['../d2/d49/mmheap_8h.html#a5a757b60576ee62955e1f43c7f590b40',1,'mmheap.h']]],
-  ['max_5fchild',['max_child',['../d2/d49/mmheap_8h.html#a78024d77b6ed6eb87df7b71edb3a4490',1,'mmheap.h']]],
-  ['max_5fchild_5for_5fgchild',['max_child_or_gchild',['../d2/d49/mmheap_8h.html#a8c56a28d1246955bcee4df6daa3d3b9e',1,'mmheap.h']]],
-  ['max_5fgchild',['max_gchild',['../d2/d49/mmheap_8h.html#a6d0f063eee9972bdcfc24c98dff4e2a3',1,'mmheap.h']]],
-  ['min_5fchild',['min_child',['../d2/d49/mmheap_8h.html#a10440df9ca108a4c81d9e407627457e4',1,'mmheap.h']]],
-  ['min_5fchild_5for_5fgchild',['min_child_or_gchild',['../d2/d49/mmheap_8h.html#a22181ef10c3819f2f2ed839320cbcf69',1,'mmheap.h']]],
-  ['min_5fgchild',['min_gchild',['../d2/d49/mmheap_8h.html#aa4fc27de16c549b666b0d1f344d257d5',1,'mmheap.h']]],
-  ['min_5flevel',['min_level',['../d2/d49/mmheap_8h.html#a568a216aae7ec7c8d84cd4311e1d7f4c',1,'mmheap.h']]],
-  ['mm_5fheap_5fadd',['mm_heap_add',['../d2/d49/mmheap_8h.html#ac3b9648a49188880d78c804c240c78a6',1,'mmheap.h']]],
-  ['mm_5fheap_5fmax',['mm_heap_max',['../d2/d49/mmheap_8h.html#ac53efdba8fc325bf56dc76ae3966d70a',1,'mmheap.h']]],
-  ['mm_5fheap_5fmin',['mm_heap_min',['../d2/d49/mmheap_8h.html#a238894117df50700981d69caf10e151d',1,'mmheap.h']]],
-  ['mm_5fheap_5fremove_5fat_5findex',['mm_heap_remove_at_index',['../d2/d49/mmheap_8h.html#aa365bf468ab677bda242fca0025d0de7',1,'mmheap.h']]],
-  ['mm_5fheap_5fremove_5fmax',['mm_heap_remove_max',['../d2/d49/mmheap_8h.html#a9c364ca33c64555691f4449a1e173bb5',1,'mmheap.h']]],
-  ['mm_5fheap_5fremove_5fmin',['mm_heap_remove_min',['../d2/d49/mmheap_8h.html#abaa4d808a27631f950876db42ec9a51a',1,'mmheap.h']]],
-  ['mm_5fheap_5freplace_5fat_5findex',['mm_heap_replace_at_index',['../d2/d49/mmheap_8h.html#af3c5c1ee4b33ff88686b60dcd49abc08',1,'mmheap.h']]],
-  ['mm_5fheap_5fripple_5fadd',['mm_heap_ripple_add',['../d2/d49/mmheap_8h.html#a05a9cd88835d4efba026a8a888277348',1,'mmheap.h']]],
-  ['mmheap_2eh',['mmheap.h',['../d2/d49/mmheap_8h.html',1,'']]],
-  ['mmheap_5fsift_5fdown',['mmheap_sift_down',['../d2/d49/mmheap_8h.html#a512d77833ca9992bd7df248d2882ae1c',1,'mmheap.h']]],
-  ['mmheap_5fsift_5fdown_5fmax',['mmheap_sift_down_max',['../d2/d49/mmheap_8h.html#a484e22d900b3f2ec681abfeb0fa07aa8',1,'mmheap.h']]],
-  ['mmheap_5fsift_5fdown_5fmin',['mmheap_sift_down_min',['../d2/d49/mmheap_8h.html#a9a7cf0514d6e9755ba3f7fb30166c42a',1,'mmheap.h']]]
+  ['left',['left',['../db/d41/namespace__mmheap.html#adb2bc0fb89be7885b6545a5dc348c2d7',1,'_mmheap']]],
+  ['log_5f2',['log_2',['../db/d41/namespace__mmheap.html#ae1ac91f07493b7821da65e31a46b1d0e',1,'_mmheap']]]
 ];

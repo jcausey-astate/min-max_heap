@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gparent',['gparent',['../d2/d49/mmheap_8h.html#ab3a2489cfbe2a652417f8a179415e63e',1,'mmheap.h']]]
+  ['child',['child',['../db/d41/namespace__mmheap.html#a85de86f5164bf88c05deedb8e2a27a72',1,'_mmheap']]]
 ];

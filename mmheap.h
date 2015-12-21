@@ -489,12 +489,17 @@ namespace mmheap{
         else{                                                   // if the heap is full, replace the max value with the new add...
             auto m        = max_size > 1 ? _mmheap::max_child(heap_array, 0, max_size-1).second : 0;
             max_value     = heap_array[m];
-            heap_array[m] = value;
-            if(max_size > 1){                                   // if this is non-trivial
-                if(value < heap_array[0]){                      // check that the new value isn't the new min
-                    std::swap(heap_array[0], heap_array[m]);    //  (if it is, make it so)
+            if(value < max_value){                                  // if the new value is larger than the one rotating out, just rotate the new value
+                heap_array[m] = value;
+                if(max_size > 1){                                   // if this is non-trivial
+                    if(value < heap_array[0]){                      // check that the new value isn't the new min
+                        std::swap(heap_array[0], heap_array[m]);    //  (if it is, make it so)
+                    }
+                    _mmheap::sift_down(heap_array, m, max_size-1);  // sift the new item down
                 }
-                _mmheap::sift_down(heap_array, m, max_size-1);  // sift the new item down
+            }
+            else{
+                max_value = value;
             }
         }
         return std::pair<bool, int>{overflowed, max_value};
