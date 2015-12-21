@@ -105,11 +105,15 @@ namespace _mmheap{
      * @param   heap_array  the heap
      * @param   i           the index (parent) for which to find the min-child
      * @param   right-index the index of the right-most element that is part of the heap
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      * @return  a pair where the first element is `true` if `i` has children (`false`
      *          otherwise), and the second element is the index of the child whose value
      *          is smallest (only if the first element is `true`)
      */
-    std::pair<bool, size_t> min_child(int* heap_array, size_t i, size_t right_index){
+    template <typename DataType>
+    std::pair<bool, size_t> min_child(DataType* heap_array, size_t i, size_t right_index){
         std::pair<bool, size_t> result{false, 0};
         if(left(i) <= right_index){
             auto m = left(i);
@@ -132,7 +136,8 @@ namespace _mmheap{
      *          (`false` otherwise), and the second element is the index of the
      *          grandchild whose value is smallest (only if the first element is `true`)
      */
-    std::pair<bool, size_t> min_gchild(int* heap_array, size_t i, size_t right_index){
+    template <typename DataType>
+    std::pair<bool, size_t> min_gchild(DataType* heap_array, size_t i, size_t right_index){
         std::pair<bool, size_t> result{false, 0};
         auto l = left(i);
         auto r = right(i);
@@ -164,7 +169,8 @@ namespace _mmheap{
      *          child or grandchild whose value is smallest (only if the first
      *          element is `true`)
      */
-    std::pair<bool, size_t> min_child_or_gchild(int* heap_array, size_t i, size_t right_index){
+    template <typename DataType>
+    std::pair<bool, size_t> min_child_or_gchild(DataType* heap_array, size_t i, size_t right_index){
         auto m = min_child(heap_array, i, right_index);
         if(m.first){
             auto  gm = min_gchild(heap_array, i, right_index);
@@ -184,11 +190,12 @@ namespace _mmheap{
      *          otherwise), and the second element is the index of the child whose value
      *          is largest (only if the first element is `true`)
      */
-    std::pair<bool, size_t> max_child(int* heap_array, size_t i, size_t right_index){
+    template <typename DataType>
+    std::pair<bool, size_t> max_child(DataType* heap_array, size_t i, size_t right_index){
         std::pair<bool, size_t> result {false, 0};
         if(left(i) <= right_index){
             auto m = left(i);
-            if(right(i) <= right_index && heap_array[right(i)] > heap_array[m]){
+            if(right(i) <= right_index && heap_array[m] < heap_array[right(i)]){
                 m = right(i);
             }
             result = {true, m};
@@ -207,20 +214,20 @@ namespace _mmheap{
      *          (`false` otherwise), and the second element is the index of the
      *          grandchild whose value is largest (only if the first element is `true`)
      */
-
-    std::pair<bool, size_t> max_gchild(int* heap_array, size_t i, size_t right_index){
+    template <typename DataType>
+    std::pair<bool, size_t> max_gchild(DataType* heap_array, size_t i, size_t right_index){
         std::pair<bool, size_t> result{false, 0};
         auto l = left(i);
         auto r = right(i);
         if(left(l) <= right_index){
             auto m = left(l);
-            if(right(l) <= right_index && heap_array[right(l)] > heap_array[m]){
+            if(right(l) <= right_index && heap_array[m] < heap_array[right(l)]){
                 m = right(l);
             }
-            if(left(r) <= right_index && heap_array[left(r)] > heap_array[m]){
+            if(left(r) <= right_index && heap_array[m] < heap_array[left(r)]){
                 m = left(r);
             }
-            if(right(r) <= right_index && heap_array[right(r)] > heap_array[m]){
+            if(right(r) <= right_index && heap_array[m] < heap_array[right(r)]){
                 m = right(r);
             }
             result = {true, m};
@@ -240,11 +247,12 @@ namespace _mmheap{
      *          child or grandchild whose value is largest (only if the first
      *          element is `true`)
      */
-    std::pair<bool, size_t> max_child_or_gchild(int* heap_array, size_t i, size_t right_index){
+    template <typename DataType>
+    std::pair<bool, size_t> max_child_or_gchild(DataType* heap_array, size_t i, size_t right_index){
         auto m = max_child(heap_array, i, right_index);
         if(m.first){
             auto gm  = max_gchild(heap_array, i, right_index);
-            m.second = gm.first && heap_array[gm.second] > heap_array[m.second] ? gm.second : m.second;
+            m.second = gm.first &&  heap_array[m.second] < heap_array[gm.second] ? gm.second : m.second;
         }
         return m;
     }
@@ -256,7 +264,8 @@ namespace _mmheap{
      * @param sift_index  the index of the element that should be sifted down
      * @param right_index the index of the right-most element that is part of the heap
      */
-    void sift_down_min(int* heap_array, size_t sift_index, size_t right_index){
+    template <typename DataType>
+    void sift_down_min(DataType* heap_array, size_t sift_index, size_t right_index){
         bool sift_more = true;
         while(sift_more && left(sift_index) <= right_index){                            // if a[i] has children
             sift_more = false;
@@ -270,7 +279,7 @@ namespace _mmheap{
             else{                                                                       // min was a grandchild
                 if(heap_array[m] < heap_array[sift_index]){
                     std::swap(heap_array[m], heap_array[sift_index]);
-                    if(heap_array[m] > heap_array[parent(m)]){
+                    if(heap_array[parent(m)] < heap_array[m]){
                         std::swap(heap_array[m], heap_array[parent(m)]);
                     }
                     sift_index = m;
@@ -287,19 +296,20 @@ namespace _mmheap{
      * @param sift_index  the index of the element that should be sifted down
      * @param right_index the index of the right-most element that is part of the heap
      */
-    void sift_down_max(int* heap_array, size_t sift_index, size_t right_index){
+    template <typename DataType>
+    void sift_down_max(DataType* heap_array, size_t sift_index, size_t right_index){
         bool sift_more = true;
         while(sift_more && left(sift_index) <= right_index){                            // if a[i] has children
             sift_more = false;
             auto mp = max_child_or_gchild(heap_array, sift_index, right_index);         // get max child or grandchild
             auto m  = mp.second;
             if(child(sift_index, m)){                                                   // if the max was a child
-                if(heap_array[m] > heap_array[sift_index]){
+                if(heap_array[sift_index] < heap_array[m]){
                     std::swap(heap_array[m], heap_array[sift_index]);
                 }
             }
             else{                                                                       // max was a grandchild
-                if(heap_array[m] > heap_array[sift_index]){
+                if(heap_array[sift_index] < heap_array[m]){
                     std::swap(heap_array[m], heap_array[sift_index]);
                     if(heap_array[m] < heap_array[parent(m)]){
                         std::swap(heap_array[m], heap_array[parent(m)]);
@@ -318,7 +328,8 @@ namespace _mmheap{
      * @param sift_index  the index of the element that should be sifted down
      * @param right_index the index of the right-most element that is part of the heap
      */
-    void sift_down(int* heap_array, size_t sift_index, size_t right_index){
+    template <typename DataType>
+    void sift_down(DataType* heap_array, size_t sift_index, size_t right_index){
         if(min_level(sift_index)){
             sift_down_min(heap_array, sift_index, right_index);
         }
@@ -333,14 +344,15 @@ namespace _mmheap{
      * @param heap_array    the heap
      * @param bubble_index  the index of the element that should be bubbled up
      */
-    void bubble_up_min(int* heap_array, size_t bubble_index){
+    template <typename DataType>
+    void bubble_up_min(DataType* heap_array, size_t bubble_index){
         bool finished = false;
         while(!finished && has_gparent(bubble_index)){
             finished = true;
             if(heap_array[bubble_index] < heap_array[gparent(bubble_index)]){
                 std::swap(heap_array[bubble_index], heap_array[gparent(bubble_index)]);
-                bubble_index    = gparent(bubble_index);
-                finished = false;
+                bubble_index = gparent(bubble_index);
+                finished     = false;
             }
         }
     }
@@ -351,14 +363,15 @@ namespace _mmheap{
      * @param heap_array    the heap
      * @param bubble_index  the index of the element that should be bubbled up
      */
-    void bubble_up_max(int* heap_array, int bubble_index){
+    template <typename DataType>
+    void bubble_up_max(DataType* heap_array, int bubble_index){
         bool finished = false;
         while(!finished && has_gparent(bubble_index)){
             finished = true;
-            if(heap_array[bubble_index] > heap_array[gparent(bubble_index)]){
+            if(heap_array[gparent(bubble_index)] < heap_array[bubble_index]){
                 std::swap(heap_array[bubble_index], heap_array[gparent(bubble_index)]);
-                bubble_index    = gparent(bubble_index);
-                finished = false;
+                bubble_index = gparent(bubble_index);
+                finished     = false;
             }
         }
     }
@@ -369,9 +382,10 @@ namespace _mmheap{
      * @param heap_array    the heap
      * @param bubble_index  the index of the element that should be bubbled up
      */
-    void bubble_up(int* heap_array, int bubble_index){
+    template <typename DataType>
+    void bubble_up(DataType* heap_array, int bubble_index){
         if(min_level(bubble_index)){
-            if(has_parent(bubble_index) && heap_array[bubble_index] > heap_array[parent(bubble_index)]){
+            if(has_parent(bubble_index) && heap_array[parent(bubble_index)] < heap_array[bubble_index]){
                 std::swap(heap_array[bubble_index], heap_array[parent(bubble_index)]);
                 bubble_up_max(heap_array, parent(bubble_index));
             }
@@ -405,7 +419,8 @@ namespace mmheap{
      * @param heap_array    the array that will become a heap
      * @param size          the number of elements in the array
      */
-    void make_heap(int* heap_array, size_t size){
+    template <typename DataType>
+    void make_heap(DataType* heap_array, size_t size){
         if(size > 1){
             for(int current = _mmheap::parent(size-1); current >= 0; --current){
                 _mmheap::sift_down(heap_array, current, size-1);
@@ -422,7 +437,8 @@ namespace mmheap{
      * @param           max_size    the physical storage allocation size of the heap
      * @throws std::runtime_error if the heap is full prior to the insert operation
      */
-    void heap_insert(int value, int* heap_array, size_t& count, size_t max_size){
+    template <typename DataType>
+    void heap_insert(const DataType& value, DataType* heap_array, size_t& count, size_t max_size){
         if(count < max_size){
             heap_array[count++] = value;
             _mmheap::bubble_up(heap_array, count-1);
@@ -441,7 +457,8 @@ namespace mmheap{
      * @return the maximum value in the heap
      * @throws std::runtime_error if the heap is empty
      */
-    int heap_max(int* heap_array, size_t count){
+    template <typename DataType>
+    DataType heap_max(DataType* heap_array, size_t count){
         if(count < 1){
             throw std::runtime_error("Cannot get max value in empty heap.");
         }
@@ -458,7 +475,8 @@ namespace mmheap{
      * @return the minimum value in the heap
      * @throws std::runtime_error if the heap is empty
      */
-    int heap_min(int* heap_array, size_t count){
+    template <typename DataType>
+    DataType heap_min(DataType* heap_array, size_t count){
         if(count < 1){
             throw std::runtime_error("Cannot get min value in empty heap.");
         }
@@ -480,9 +498,10 @@ namespace mmheap{
      *         that rotated out of the heap (formerly the maximum) when the new value
      *         was added (set only if an overflow occurred)
      */
-    std::pair<bool, int> heap_insert_circular(int value, int* heap_array, size_t& count, size_t max_size){
-        int max_value = 0;
-        bool overflowed  = count == max_size ? true : false;
+    template <typename DataType>
+    std::pair<bool, DataType> heap_insert_circular(const DataType& value, DataType* heap_array, size_t& count, size_t max_size){
+        auto max_value  = DataType{};
+        bool overflowed = count == max_size ? true : false;
         if(!overflowed){
             heap_insert(value, heap_array, count, max_size);
         }
@@ -518,14 +537,15 @@ namespace mmheap{
      * @throws  std::runtime_error if the heap is empty
      * @throws  std::range_error   if the index is out of range
      */
-    int heap_replace_at_index(int new_value, size_t index, int* heap_array, size_t count){
+    template <typename DataType>
+    DataType heap_replace_at_index(const DataType& new_value, size_t index, DataType* heap_array, size_t count){
         if(count == 0){
             throw std::runtime_error("Cannot replace value in empty heap.");
         }
         if(index > count){
             throw std::range_error("Index beyond end of heap.");
         }
-        int old_value     = heap_array[index];
+        auto old_value    = heap_array[index];
         heap_array[index] = new_value;
         if(_mmheap::min_level(index)){
             if(new_value < old_value){
@@ -539,7 +559,7 @@ namespace mmheap{
             }
         }
         else{
-            if(new_value > old_value){
+            if(old_value < new_value){
                 _mmheap::bubble_up_max(heap_array, index);
             }
             else{
@@ -563,14 +583,15 @@ namespace mmheap{
      * @throws  std::runtime_error if the heap is empty
      * @throws  std::range_error   if the index is out of range
      */
-    int heap_remove_at_index(size_t index, int* heap_array, size_t& count){
+    template <typename DataType>
+    DataType heap_remove_at_index(size_t index, DataType* heap_array, size_t& count){
         if(count == 0){
             throw std::runtime_error("Cannot remove value in empty heap.");
         }
         if(index > count){
             throw std::range_error("Index beyond end of heap.");
         }
-        int old_value = heap_replace_at_index(heap_array[count-1], index, heap_array, count);
+        auto old_value = heap_replace_at_index(heap_array[count-1], index, heap_array, count);
         --count;
         return old_value;
     }
@@ -584,11 +605,12 @@ namespace mmheap{
      * @return the minimum value in the heap
      * @throws std::runtime_error if the heap is empty
      */
-    int heap_remove_min(int* heap_array, size_t& count){
+    template <typename DataType>
+    DataType heap_remove_min(DataType* heap_array, size_t& count){
         if(count == 0){
             throw std::runtime_error("Cannot remove from empty heap.");
         }
-        int value = heap_array[0];
+        auto value = heap_array[0];
         std::swap(heap_array[0], heap_array[count-1]);
         --count;
         if(count > 0){
@@ -606,7 +628,8 @@ namespace mmheap{
      * @return the maximum value in the heap
      * @throws std::runtime_error if the heap is empty
      */
-    int heap_remove_max(int* heap_array, size_t& count){
+    template <typename DataType>
+    DataType heap_remove_max(DataType* heap_array, size_t& count){
         if(count == 0){
             throw std::runtime_error("Cannot remove from empty heap.");
         }
