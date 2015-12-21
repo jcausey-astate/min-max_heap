@@ -105,6 +105,9 @@ namespace _mmheap{
      * @param   heap_array  the heap
      * @param   i           the index (parent) for which to find the min-child
      * @param   right-index the index of the right-most element that is part of the heap
+     * @tparam  DataType    the type of data stored in the heap - must be
+     *                      LessThanComparable, Swappable, CopyConstructable,
+     *                      and CopyAssignable
      * @return  a pair where the first element is `true` if `i` has children (`false`
      *          otherwise), and the second element is the index of the child whose value
      *          is smallest (only if the first element is `true`)
@@ -192,7 +195,7 @@ namespace _mmheap{
         std::pair<bool, size_t> result {false, 0};
         if(left(i) <= right_index){
             auto m = left(i);
-            if(right(i) <= right_index && heap_array[right(i)] > heap_array[m]){
+            if(right(i) <= right_index && heap_array[m] < heap_array[right(i)]){
                 m = right(i);
             }
             result = {true, m};
@@ -218,13 +221,13 @@ namespace _mmheap{
         auto r = right(i);
         if(left(l) <= right_index){
             auto m = left(l);
-            if(right(l) <= right_index && heap_array[right(l)] > heap_array[m]){
+            if(right(l) <= right_index && heap_array[m] < heap_array[right(l)]){
                 m = right(l);
             }
-            if(left(r) <= right_index && heap_array[left(r)] > heap_array[m]){
+            if(left(r) <= right_index && heap_array[m] < heap_array[left(r)]){
                 m = left(r);
             }
-            if(right(r) <= right_index && heap_array[right(r)] > heap_array[m]){
+            if(right(r) <= right_index && heap_array[m] < heap_array[right(r)]){
                 m = right(r);
             }
             result = {true, m};
@@ -249,7 +252,7 @@ namespace _mmheap{
         auto m = max_child(heap_array, i, right_index);
         if(m.first){
             auto gm  = max_gchild(heap_array, i, right_index);
-            m.second = gm.first && heap_array[gm.second] > heap_array[m.second] ? gm.second : m.second;
+            m.second = gm.first &&  heap_array[m.second] < heap_array[gm.second] ? gm.second : m.second;
         }
         return m;
     }
@@ -276,7 +279,7 @@ namespace _mmheap{
             else{                                                                       // min was a grandchild
                 if(heap_array[m] < heap_array[sift_index]){
                     std::swap(heap_array[m], heap_array[sift_index]);
-                    if(heap_array[m] > heap_array[parent(m)]){
+                    if(heap_array[parent(m)] < heap_array[m]){
                         std::swap(heap_array[m], heap_array[parent(m)]);
                     }
                     sift_index = m;
@@ -301,12 +304,12 @@ namespace _mmheap{
             auto mp = max_child_or_gchild(heap_array, sift_index, right_index);         // get max child or grandchild
             auto m  = mp.second;
             if(child(sift_index, m)){                                                   // if the max was a child
-                if(heap_array[m] > heap_array[sift_index]){
+                if(heap_array[sift_index] < heap_array[m]){
                     std::swap(heap_array[m], heap_array[sift_index]);
                 }
             }
             else{                                                                       // max was a grandchild
-                if(heap_array[m] > heap_array[sift_index]){
+                if(heap_array[sift_index] < heap_array[m]){
                     std::swap(heap_array[m], heap_array[sift_index]);
                     if(heap_array[m] < heap_array[parent(m)]){
                         std::swap(heap_array[m], heap_array[parent(m)]);
@@ -348,8 +351,8 @@ namespace _mmheap{
             finished = true;
             if(heap_array[bubble_index] < heap_array[gparent(bubble_index)]){
                 std::swap(heap_array[bubble_index], heap_array[gparent(bubble_index)]);
-                bubble_index    = gparent(bubble_index);
-                finished = false;
+                bubble_index = gparent(bubble_index);
+                finished     = false;
             }
         }
     }
@@ -365,10 +368,10 @@ namespace _mmheap{
         bool finished = false;
         while(!finished && has_gparent(bubble_index)){
             finished = true;
-            if(heap_array[bubble_index] > heap_array[gparent(bubble_index)]){
+            if(heap_array[gparent(bubble_index)] < heap_array[bubble_index]){
                 std::swap(heap_array[bubble_index], heap_array[gparent(bubble_index)]);
-                bubble_index    = gparent(bubble_index);
-                finished = false;
+                bubble_index = gparent(bubble_index);
+                finished     = false;
             }
         }
     }
@@ -382,7 +385,7 @@ namespace _mmheap{
     template <typename DataType>
     void bubble_up(DataType* heap_array, int bubble_index){
         if(min_level(bubble_index)){
-            if(has_parent(bubble_index) && heap_array[bubble_index] > heap_array[parent(bubble_index)]){
+            if(has_parent(bubble_index) && heap_array[parent(bubble_index)] < heap_array[bubble_index]){
                 std::swap(heap_array[bubble_index], heap_array[parent(bubble_index)]);
                 bubble_up_max(heap_array, parent(bubble_index));
             }
@@ -551,7 +554,7 @@ namespace mmheap{
             }
         }
         else{
-            if(new_value > old_value){
+            if(old_value < new_value){
                 _mmheap::bubble_up_max(heap_array, index);
             }
             else{
