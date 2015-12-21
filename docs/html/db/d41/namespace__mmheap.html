@@ -138,17 +138,17 @@ Functions</h2></td></tr>
 <tr class="memitem:a1202a815bc6a5ead35da79b7d3f954b0"><td class="memTemplParams" colspan="2">template&lt;typename DataType &gt; </td></tr>
 <tr class="memitem:a1202a815bc6a5ead35da79b7d3f954b0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d41/namespace__mmheap.html#a1202a815bc6a5ead35da79b7d3f954b0">bubble_up_min</a> (DataType *heap_array, size_t bubble_index)</td></tr>
 <tr class="separator:a1202a815bc6a5ead35da79b7d3f954b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6510cbd9ec46c56b766d7841d9216b08"><td class="memTemplParams" colspan="2">template&lt;typename DataType &gt; </td></tr>
-<tr class="memitem:a6510cbd9ec46c56b766d7841d9216b08"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d41/namespace__mmheap.html#a6510cbd9ec46c56b766d7841d9216b08">bubble_up_max</a> (DataType *heap_array, int bubble_index)</td></tr>
-<tr class="separator:a6510cbd9ec46c56b766d7841d9216b08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa832caf8107f78258f7f2e5294480b41"><td class="memTemplParams" colspan="2">template&lt;typename DataType &gt; </td></tr>
-<tr class="memitem:aa832caf8107f78258f7f2e5294480b41"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d41/namespace__mmheap.html#aa832caf8107f78258f7f2e5294480b41">bubble_up</a> (DataType *heap_array, int bubble_index)</td></tr>
-<tr class="separator:aa832caf8107f78258f7f2e5294480b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8b5f8b22c89c24763bfe3c08edce067"><td class="memTemplParams" colspan="2">template&lt;typename DataType &gt; </td></tr>
+<tr class="memitem:aa8b5f8b22c89c24763bfe3c08edce067"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d41/namespace__mmheap.html#aa8b5f8b22c89c24763bfe3c08edce067">bubble_up_max</a> (DataType *heap_array, size_t bubble_index)</td></tr>
+<tr class="separator:aa8b5f8b22c89c24763bfe3c08edce067"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2e9cdc91d81a3541295209df67f8d46"><td class="memTemplParams" colspan="2">template&lt;typename DataType &gt; </td></tr>
+<tr class="memitem:ab2e9cdc91d81a3541295209df67f8d46"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d41/namespace__mmheap.html#ab2e9cdc91d81a3541295209df67f8d46">bubble_up</a> (DataType *heap_array, size_t bubble_index)</td></tr>
+<tr class="separator:ab2e9cdc91d81a3541295209df67f8d46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <code><a class="el" href="../../db/d41/namespace__mmheap.html">_mmheap</a></code> namespace contains functions that are only intended for internal use by the "public-facing" functions in the <code>mmheap</code> namespace. None of the functions in <code><a class="el" href="../../db/d41/namespace__mmheap.html">_mmheap</a>::</code> should be necessary externally. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="aa832caf8107f78258f7f2e5294480b41"></a>
+<a class="anchor" id="ab2e9cdc91d81a3541295209df67f8d46"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -163,7 +163,7 @@ template&lt;typename DataType &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">size_t&#160;</td>
           <td class="paramname"><em>bubble_index</em>&#160;</td>
         </tr>
         <tr>
@@ -190,18 +190,9 @@ template&lt;typename DataType &gt; </div>
 
 <p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00419">419</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
 
-<p>References <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00058">has_parent()</a>, <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00097">min_level()</a>, and <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00057">parent()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d41/namespace__mmheap_aa832caf8107f78258f7f2e5294480b41_cgraph.svg" width="356" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
 </div>
 </div>
-<a class="anchor" id="a6510cbd9ec46c56b766d7841d9216b08"></a>
+<a class="anchor" id="aa8b5f8b22c89c24763bfe3c08edce067"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -216,7 +207,7 @@ template&lt;typename DataType &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">size_t&#160;</td>
           <td class="paramname"><em>bubble_index</em>&#160;</td>
         </tr>
         <tr>
@@ -242,15 +233,6 @@ template&lt;typename DataType &gt; </div>
 </dl>
 
 <p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00397">397</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
-
-<p>References <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00061">gparent()</a>, and <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00062">has_gparent()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d41/namespace__mmheap_a6510cbd9ec46c56b766d7841d9216b08_cgraph.svg" width="396" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
 
 </div>
 </div>
@@ -358,15 +340,6 @@ template&lt;typename DataType &gt; </div>
 
 <p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00061">61</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00397">bubble_up_max()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d41/namespace__mmheap_a39f6a9bd5fe68b3e4cdfe1ed0f370485_icgraph.svg" width="368" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
 </div>
 </div>
 <a class="anchor" id="ae6a28a83e624790c42205635d8018438"></a>
@@ -393,15 +366,6 @@ Here is the caller graph for this function:</div>
 
 <p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00062">62</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00397">bubble_up_max()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d41/namespace__mmheap_ae6a28a83e624790c42205635d8018438_icgraph.svg" width="396" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
 </div>
 </div>
 <a class="anchor" id="ad2d0424f48d073e88d974a8dc25f80eb"></a>
@@ -427,15 +391,6 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00058">58</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00419">bubble_up()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d41/namespace__mmheap_ad2d0424f48d073e88d974a8dc25f80eb_icgraph.svg" width="356" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
 
 </div>
 </div>
@@ -827,15 +782,6 @@ template&lt;typename DataType &gt; </div>
 
 <p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00097">97</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00419">bubble_up()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d41/namespace__mmheap_a6a22e87485061e4e65c40ec62efb3a05_icgraph.svg" width="348" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
 </div>
 </div>
 <a class="anchor" id="a2970d6beedec8a1bf8c4596a02768a4b"></a>
@@ -861,15 +807,6 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00057">57</a> of file <a class="el" href="../../d2/d49/mmheap_8h_source.html">mmheap.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d2/d49/mmheap_8h_source.html#l00419">bubble_up()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d41/namespace__mmheap_a2970d6beedec8a1bf8c4596a02768a4b_icgraph.svg" width="328" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
 
 </div>
 </div>
@@ -1055,7 +992,7 @@ template&lt;typename DataType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 20 2015 19:58:44 for Min-Max Heap by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Dec 20 2015 21:45:55 for Min-Max Heap by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>
