@@ -7,7 +7,9 @@ Defines functions for maintaining a Min-Max Heap, as described by Adkinson:
     DOI=http://dx.doi.org/10.1145/6617.6621
 </blockquote>
 
-The min-max heap functions are all defined as _templates_, so a heap of any type that is _less-than comparable_ is possible.  The heap functions are designed to work in-place on top of a regular C++ array.
+The main advantage of the Min-Max Heap is the ability to access both the _minimum_ and _maximum_ values contained in the data structure in constant time.  The trade-off is a slight increase in the complexity constant coefficients with respect to traditional heaps.  The Min-Max heap still maintains the same _order_ of complexity as traditional heaps for all operations.
+
+The heap functions defined in _`mmheap.h`_ are defined as _templates_, so a heap of any type that is _less-than comparable_ and _copy-constructable_ is possible.  The heap functions are designed to work in-place on top of a regular C++ array.
 
 ### Namespaces
 The file _`mmheap.h`_ defines two namespaces: `mmheap` and `_mmheap`.  All of the functions necessary to use the min-max heap are exposed in the `mmheap` namespace.  It should not be necessary to use the `_mmheap` namespace (those functions are for internal use only).
@@ -30,20 +32,20 @@ Inserts a new value into the heap, given the value, the heap array, the current 
 `DataType heap_max (DataType∗ heap_array, size_t count);`<br />
 Returns the maximum value contained in the heap, given the heap array and the current number of items contained in the heap.
 
-#### `mmheap:: heap_max()`
+#### `mmheap:: heap_min()`
 `template <typename DataType>`<br />
 `DataType heap_min (DataType∗ heap_array, size_t count);`<br />
 Returns the minimum value contained in the heap, given the heap array and the current number of items contained in the heap.
-
-#### `mmheap:: heap_remove_min()`
-`template <typename DataType>`<br />
-`DataType heap_remove_min (DataType∗ heap_array, size_t& count);`<br />
-Removes and returns the minimum value contained in the heap, given the heap array and the current number of items contained in the heap.  The `count` will be decreased by one following the function call.
 
 #### `mmheap:: heap_remove_max()`
 `template <typename DataType>`<br />
 `DataType heap_remove_max (DataType∗ heap_array, size_t& count);`<br />
 Removes and returns the maximum value contained in the heap, given the heap array and the current number of items contained in the heap.  The `count` will be decreased by one following the function call.
+
+#### `mmheap:: heap_remove_min()`
+`template <typename DataType>`<br />
+`DataType heap_remove_min (DataType∗ heap_array, size_t& count);`<br />
+Removes and returns the minimum value contained in the heap, given the heap array and the current number of items contained in the heap.  The `count` will be decreased by one following the function call.
 
 #### Additional Functions
 The following functions are less likely to be commonly used, but are provided under the `mmheap` namespace as well; for more information, _read the documentation in the `docs` directory_.
