@@ -50,33 +50,17 @@ Removes and returns the minimum value contained in the heap, given the heap arra
 #### Additional Functions
 The following functions are less likely to be commonly used, but are provided under the `mmheap` namespace as well; for more information, _read the documentation in the `docs` directory_.
 
-```cpp
-// add to heap, rotating the maximum value out 
-// if the heap is full
-template <typename DataType>
-std::pair <bool, DataType> heap_insert_circular (
-    const DataType& value, 
-    DataType∗       heap_array, 
-    size_t&         count,
-    size_t          max_size);
+##### `mmheap:: heap_insert_circular()`
+Add to heap, rotating the maximum value out if the heap is full.
 
-// replace the value at a specific index in the heap array
-// with a new value, and restore the heap property
-template <typename DataType>
-DataType heap_replace_at_index (
-    const DataType& new_value, 
-    size_t          index, 
-    DataType∗       heap_array, 
-    size_t          count);
+##### `mmheap:: heap_replace_at_index()`
+Replace the value at a specific index in the heap array with a new value, and restore the heap property.
 
-// remove and return the value at a specified index in the
-// heap array, and restore the heap property
-template <typename DataType>
-DataType heap_remove_at_index (
-    size_t          index, 
-    DataType∗       heap_array, 
-    size_t&         count);
-```
+##### `mmheap:: heap_remove_at_index()`
+Remove and return the value at a specified index in the heap array, and restore the heap property.
+
+##### `mmheap:: is_heap()`
+Returns `true` if an arbitrary array is in a valid Min-Max heap ordering, or `false` otherwise.
 
 ### License
 This library is released under the MIT License: http://opensource.org/licenses/MIT
