@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['left',['left',['../db/d41/namespace__mmheap.html#adb2bc0fb89be7885b6545a5dc348c2d7',1,'_mmheap']]],
-  ['log_5f2',['log_2',['../db/d41/namespace__mmheap.html#ae1ac91f07493b7821da65e31a46b1d0e',1,'_mmheap']]]
+  ['is_5fheap',['is_heap',['../d0/d3e/namespacemmheap.html#a61437aee5062d2cf3ae60a91d3091550',1,'mmheap']]]
 ];

@@ -45,7 +45,6 @@
 #include <algorithm>
 #include <cmath>
 #include <stdexcept>
-#include <cassert>
 
 /**
  * The `_mmheap` namespace contains functions that are only intended for internal
@@ -113,7 +112,7 @@ namespace _mmheap{
      *          is smallest (only if the first element is `true`)
      */
     template <typename DataType>
-    std::pair<bool, size_t> min_child(DataType* heap_array, size_t i, size_t right_index){
+    std::pair<bool, size_t> min_child(const DataType* heap_array, size_t i, size_t right_index){
         std::pair<bool, size_t> result{false, 0};
         if(left(i) <= right_index){
             auto m = left(i);
@@ -140,7 +139,7 @@ namespace _mmheap{
      *          grandchild whose value is smallest (only if the first element is `true`)
      */
     template <typename DataType>
-    std::pair<bool, size_t> min_gchild(DataType* heap_array, size_t i, size_t right_index){
+    std::pair<bool, size_t> min_gchild(const DataType* heap_array, size_t i, size_t right_index){
         std::pair<bool, size_t> result{false, 0};
         auto l = left(i);
         auto r = right(i);
@@ -176,7 +175,7 @@ namespace _mmheap{
      *          element is `true`)
      */
     template <typename DataType>
-    std::pair<bool, size_t> min_child_or_gchild(DataType* heap_array, size_t i, size_t right_index){
+    std::pair<bool, size_t> min_child_or_gchild(const DataType* heap_array, size_t i, size_t right_index){
         auto m = min_child(heap_array, i, right_index);
         if(m.first){
             auto  gm = min_gchild(heap_array, i, right_index);
@@ -200,7 +199,7 @@ namespace _mmheap{
      *          is largest (only if the first element is `true`)
      */
     template <typename DataType>
-    std::pair<bool, size_t> max_child(DataType* heap_array, size_t i, size_t right_index){
+    std::pair<bool, size_t> max_child(const DataType* heap_array, size_t i, size_t right_index){
         std::pair<bool, size_t> result {false, 0};
         if(left(i) <= right_index){
             auto m = left(i);
@@ -227,7 +226,7 @@ namespace _mmheap{
      *          grandchild whose value is largest (only if the first element is `true`)
      */
     template <typename DataType>
-    std::pair<bool, size_t> max_gchild(DataType* heap_array, size_t i, size_t right_index){
+    std::pair<bool, size_t> max_gchild(const DataType* heap_array, size_t i, size_t right_index){
         std::pair<bool, size_t> result{false, 0};
         auto l = left(i);
         auto r = right(i);
@@ -263,7 +262,7 @@ namespace _mmheap{
      *          element is `true`)
      */
     template <typename DataType>
-    std::pair<bool, size_t> max_child_or_gchild(DataType* heap_array, size_t i, size_t right_index){
+    std::pair<bool, size_t> max_child_or_gchild(const DataType* heap_array, size_t i, size_t right_index){
         auto m = max_child(heap_array, i, right_index);
         if(m.first){
             auto gm  = max_gchild(heap_array, i, right_index);
@@ -501,7 +500,7 @@ namespace mmheap{
      * @throws std::runtime_error if the heap is empty
      */
     template <typename DataType>
-    DataType heap_max(DataType* heap_array, size_t count){
+    DataType heap_max(const DataType* heap_array, size_t count){
         if(count < 1){
             throw std::runtime_error("Cannot get max value in empty heap.");
         }
@@ -521,7 +520,7 @@ namespace mmheap{
      * @throws std::runtime_error if the heap is empty
      */
     template <typename DataType>
-    DataType heap_min(DataType* heap_array, size_t count){
+    DataType heap_min(const DataType* heap_array, size_t count){
         if(count < 1){
             throw std::runtime_error("Cannot get min value in empty heap.");
         }
@@ -552,16 +551,16 @@ namespace mmheap{
         if(!overflowed){
             heap_insert(value, heap_array, count, max_size);
         }
-        else{                                                   // if the heap is full, replace the max value with the new add...
+        else{                                                                           // if the heap is full, replace the max value with the new add...
             auto m        = max_size > 1 ? _mmheap::max_child(heap_array, 0, max_size-1).second : 0;
             max_value     = heap_array[m];
-            if(value < max_value){                                  // if the new value is larger than the one rotating out, just rotate the new value
+            if(value < max_value){                                                      // if the new value is larger than the one rotating out, just rotate the new value
                 heap_array[m] = value;
-                if(max_size > 1){                                   // if this is non-trivial
-                    if(value < heap_array[0]){                      // check that the new value isn't the new min
-                        std::swap(heap_array[0], heap_array[m]);    //  (if it is, make it so)
+                if(max_size > 1){                                                       // if this is non-trivial
+                    if(value < heap_array[0]){                                          // check that the new value isn't the new min
+                        std::swap(heap_array[0], heap_array[m]);                        //  (if it is, make it so)
                     }
-                    _mmheap::sift_down(heap_array, m, max_size-1);  // sift the new item down
+                    _mmheap::sift_down(heap_array, m, max_size-1);                      // sift the new item down
                 }
             }
             else{
@@ -698,6 +697,39 @@ namespace mmheap{
         }
         heap_remove_at_index(m.second, heap_array, count);
         return value;
+    }
+
+    /**
+     * determine if an arbitrary array is a Min-Max heap
+     *
+     * @param   array   the array to check to see if the heap property holds
+     * @param   count   the number of items contained in `array`
+     * @return  true if `array` is a Min-Max heap, `false` otherwise
+     */
+    template <typename DataType>
+    bool is_heap(const DataType* array, size_t count){
+        bool result = true;                                                             // the empty heap and single item are trivially heaps...
+        if(count > 1){                                                                  // more work if two or more items
+            auto i  = count - 1;
+            while(result && _mmheap::has_parent(i)){                                    // after this loop, we either fail, or make it to root with result=true
+                auto sub_root = _mmheap::parent(i);
+                auto value    = array[sub_root];
+                if(_mmheap::min_level(sub_root)){                                       // min level: we must be smaller than children & grandchildren
+                    auto min_value = _mmheap::min_child_or_gchild(array, sub_root, count-1);
+                    result &= (!min_value.first)
+                           || value <  array[min_value.second]
+                           || value == array[min_value.second];
+                }
+                else{                                                                   // max level: we must be larger than children & grandchildren
+                    auto max_value = _mmheap::max_child_or_gchild(array, sub_root, count-1);
+                    result &= (!max_value.first)
+                           || array[max_value.second] <  value
+                           || array[max_value.second] == value;
+                }
+                --i;
+            }
+        }
+        return result;
     }
 }
 
